@@ -1,0 +1,4 @@
+.idea
+src/tests
+package-lock.json
+node_modules

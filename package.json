@@ -1,0 +1,31 @@
+{
+  "dependencies": {
+    "fs": "^0.0.1-security"
+  },
+  "name": "easytranslate.js",
+  "description": "EasyTranslate.js is a lightweight JavaScript library for easy message translation based on language and translation groups.",
+  "version": "1.0.0",
+  "main": "./src/index.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nicolaeser/easytranslate.js.git"
+  },
+  "keywords": [
+    "translate",
+    "i18n",
+    "internationalization",
+    "languages",
+    "language",
+    "multilanguage"
+  ],
+  "author": "Nico Laeser",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nicolaeser/easytranslate.js/issues"
+  },
+  "homepage": "https://github.com/nicolaeser/easytranslate.js#readme"
+}
