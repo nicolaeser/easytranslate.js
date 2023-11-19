@@ -37,7 +37,7 @@ console.log(translatedMessage);
 ```json
 {
   "common": {
-    "hello": "Hello {user}."
+    "hello": "Hello {name}."
   }
 }
 ```
