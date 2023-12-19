@@ -12,71 +12,56 @@ npm install easytranslate.js
 
 ## Usage
 ```js
-const {Translator} = require('easytranslate.js');
+const Translator = require('easytranslate.js');
 
-// Create a Translator instance
-const translator = new Translator('en', 'fallbackLanguage');
+// Create an instance of the Translator
+const translator = new Translator();
 
-// Set the translation file directory
-translator.setDirectory('./locales');
+// Set the directory containing translation files
+translator.setDirectory('./translations');
 
-// Set the translation group
-translator.setGroup('common');
+// Optional: Set a custom message for when a translation is not found
+translator.setNotFoundMessage('Translation not available!');
 
-// Change current Language
-translator.setLanguage('de')
+// Optional: Enable debug mode to log additional information
+translator.setDebugMode(true);
 
-
+// Get available languages
+const availableLanguages = translator.getAvailableLanguages();
+console.log('Available Languages:', availableLanguages);
 
 // Translate a message
-const translatedMessage = translator.translate('hello', { name: 'John' });
-console.log(translatedMessage);
+const translation = translator.translate('en', 'greetings.user.header.title1', { user: 'me', time: '10 pm' });
+console.log('Translation:', translation);
 ```
 
-## ./locales/en.json
+# Translation Files
+Place your translation files in the specified directory (e.g., ./translations). Each file should be named with the language code (e.g., en.json) and follow the JSON structure:
 ```json
 {
-  "common": {
-    "hello": "Hello {name}."
+  "greetings": {
+    "user": {
+      "header": {
+        "title1": "Hey {user}, it is {time}?"
+      }
+    }
   }
 }
 ```
 
-## Features
+# Maybe Important for you?
+## `setDirectory(directory: string): void`
 
-- ### Simple and lightweight translation library.
-- ### Support for language fallbacks in case translations are missing.
-- ### Dynamic setting of language and translation group.
-## API
+# Sets the directory containing translation files.
+## `setNotFoundMessage(message: string): void`
 
-### `Translator(language, [fallbackLanguage])`
+# Sets a custom message to be returned when a translation is not found.
+## `setDebugMode(debugMode: boolean): void`
 
-Creates a new Translator instance.
+# Enables or disables debug mode. When enabled, additional information is logged.
+`getAvailableLanguages(): string[]`
 
-- `language` (String): The target language.
-- `fallbackLanguage` (String, optional): The fallback language in case the translation is not available in the target language. Defaults to 'en'.
+# Returns an array of available language codes.
+`translate(language: string, key: string, params?: object): string`
 
-### `setDirectory(directory)`
-
-Sets the directory where translation files are stored.
-
-- `directory` (String): The directory path.
-
-### `setGroup(group)`
-
-Sets the translation group dynamically.
-
-- `group` (String): The translation group identifier.
-
-### `setLanguage(language)`
-
-Sets the target language dynamically.
-
-- `language` (String): The target language to set.
-
-### `translate(translationKey, [variables])`
-
-Translates a given key using the loaded translations. If the key is missing in the current language, it falls back to the fallback language.
-
-- `translationKey` (String): The key to be translated.
-- `variables` (Object, optional): Variables to replace placeholders in the translated string.
+# Translates a message based on the specified language, translation key, and optional parameters.
