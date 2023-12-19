@@ -4,7 +4,7 @@
   },
   "name": "easytranslate.js",
   "description": "EasyTranslate.js is a lightweight JavaScript library for easy message translation based on language and translation groups.",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "main": "./src/index.js",
   "devDependencies": {},
   "scripts": {
